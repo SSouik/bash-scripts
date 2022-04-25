@@ -18,16 +18,16 @@ COMMIT=""
 IS_PULL_REQUEST=0
 
 function commit_lint () {
-    commit=$1
+  commit=$1
 
-    if [[ $commit =~ $REGEX ]]; then
-        echo "Commit message: '${commit}' checks out!"
-        echo
-    else
-        echo "Commit message: '${commit}' doesn't meet the requirements."
-        echo
-        exit 1
-    fi
+  if [[ $commit =~ $REGEX ]]; then
+      echo "Commit message: '${commit}' checks out!"
+      echo
+  else
+      echo "Commit message: '${commit}' doesn't meet the requirements."
+      echo
+      exit 1
+  fi
 }
 
 # If no arguments are given, then print usage
@@ -68,24 +68,24 @@ done
 
 # If the pull request flag is set, then lint all commits in the pull request
 if [[ $IS_PULL_REQUEST -eq 1 ]]; then
-    echo "Linting pull request commits"
-    echo
+  echo "Linting pull request commits"
+  echo
 
-    # Get count of commits in PR
-    count=$(git rev-list --count HEAD ^main)
+  # Get count of commits in PR
+  count=$(git rev-list --count HEAD ^main)
 
-    # Get list of commits
-    commit_logs=$(git log -${count} --pretty=%B)
+  # Get list of commits
+  commit_logs=$(git log -${count} --pretty=%B)
 
-    # Split into an array of commits
-    IFS=$'\n' read -rd '' -a commits <<< "$commit_logs"
+  # Split into an array of commits
+  IFS=$'\n' read -rd '' -a commits <<< "$commit_logs"
 
-    for commit in "${commits[@]}";
-    do
-        commit_lint "$commit"
-    done
+  for commit in "${commits[@]}";
+  do
+      commit_lint "$commit"
+  done
 
-    exit
+  exit
 fi
 
 commit_lint "$COMMIT"
