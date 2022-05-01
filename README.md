@@ -1,4 +1,2 @@
-# bash-scripts
-Collection of bash scripts
-
-This is a test
+# docker-images
+Collection of custom docker images to be used CI environments.
