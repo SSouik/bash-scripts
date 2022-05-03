@@ -14,3 +14,4 @@ RUN apt-get install -y \
 COPY ./scripts .
 RUN mv ./commit-lint.sh /bin/commit-lint
 RUN mv ./version-check.sh /bin/version-check
+RUN mv ./github-release.sh /bin/github-release
