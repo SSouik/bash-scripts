@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 USAGE="
 Commit Lint CLI
@@ -10,7 +10,7 @@ Commit Lint CLI
     --pull-request | -p     Lint all commits in a pull request (Lints commits that are between the new/current branch and main)
 "
 
-VERSION="Commit Lint CLI - v1.1.0"
+VERSION="Commit Lint CLI - v1.1.1"
 
 # Variables
 REGEX="^(added|changed|fix|ci|docs|break): [A-za-z0-9]"
@@ -72,7 +72,7 @@ if [[ $IS_PULL_REQUEST -eq 1 ]]; then
   echo
 
   # Get count of commits in PR
-  count=$(git rev-list --count HEAD ^main)
+  count=$(git rev-list --count HEAD ^origin/main)
 
   # Get list of commits
   commit_logs=$(git log -${count} --pretty=%B)
