@@ -1,0 +1,19 @@
+name: Test Changelog
+
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    container:
+      image: ssouik/git-chglog:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check Version
+        run: |
+          generate-changelog \
+            --config .chglog/config.yml \
+            --template .chglog/CHANGELOG.tlp.md \
+            --amend-commit

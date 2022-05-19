@@ -10,10 +10,10 @@ Commit Lint CLI
     --pull-request | -p     Lint all commits in a pull request (Lints commits that are between the new/current branch and main)
 "
 
-VERSION="Commit Lint CLI - v1.1.1"
+VERSION="Commit Lint CLI - v1.2.0"
 
 # Variables
-REGEX="^(added|changed|fix|ci|docs|break): [A-za-z0-9]"
+REGEX="^(added|changed|refactor|fix|ci|docs|break): [A-za-z0-9]"
 COMMIT=""
 IS_PULL_REQUEST=0
 
