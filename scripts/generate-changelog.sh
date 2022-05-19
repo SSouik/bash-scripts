@@ -33,7 +33,7 @@ do
       CONFIG=$2; shift
       ;;
     --template|-t)
-      TEMPLATE=$2;
+      TEMPLATE=$2; shift
       ;;
     --amend-commit|-a)
       IS_AMEND=1;
@@ -60,6 +60,8 @@ if [[ $IS_AMEND -eq 1 ]]; then
     echo "Amending the CHANGELOG updates to the previous commit"
     echo
 
+    git config user.name "$(git log -n 1 --pretty=format:%an)"
+    git config user.email "$(git log -n 1 --pretty=format:%ae)"
     git add .
     git commit --amend --no-edit
     git push origin main
