@@ -15,5 +15,5 @@ jobs:
         run: |
           generate-changelog \
             --config ".chglog/config.yml" \
-            --template ".chglog/CHANGELOG.tlp.md" \
+            --template ".chglog/CHANGELOG.tpl.md" \
             --amend-commit
