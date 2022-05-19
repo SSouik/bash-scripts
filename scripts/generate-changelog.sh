@@ -33,7 +33,7 @@ do
       CONFIG=$2; shift
       ;;
     --template|-t)
-      TEMPLATE=;
+      TEMPLATE=$2;
       ;;
     --amend-commit|-a)
       IS_AMEND=1;

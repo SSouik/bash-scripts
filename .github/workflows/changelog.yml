@@ -14,6 +14,6 @@ jobs:
       - name: Check Version
         run: |
           generate-changelog \
-            --config .chglog/config.yml \
-            --template .chglog/CHANGELOG.tlp.md \
+            --config ".chglog/config.yml" \
+            --template ".chglog/CHANGELOG.tlp.md" \
             --amend-commit
